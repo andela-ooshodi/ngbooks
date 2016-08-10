@@ -29,7 +29,7 @@ python mange.py createsuperuser
 6) Start your server (default to port 8000)
 ```
 python mange.py runserver
-``
+```
 
 7) Navigate to the admin site and update your db with information `localhost:8000/admin/`
 
