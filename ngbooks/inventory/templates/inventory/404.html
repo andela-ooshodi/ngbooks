@@ -1,0 +1,11 @@
+{% extends "bookapp/base.html" %}
+
+{% block body_content %}
+<div class="">
+    <h1>Search Result</h1>
+    <h3>Apologies</h3>
+    <p>Seems what you are looking for cannot be found</p>
+    <p>Click <a href="{% url 'home' %}">here</a> to go back</p>
+</div>
+
+{% endblock body_content %}

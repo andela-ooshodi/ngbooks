@@ -1,0 +1,37 @@
+{% extends "bookapp/base.html" %}
+
+{% block body_content %}
+<div class="">
+    <h1>Search Result</h1>
+    {# Search Result for Category #}
+    {% if category %}
+    <h3> Here are the books in this category: <strong>{{ category.name }}</strong></h3>
+    <h4>{{ category.description }}</h4>
+    <ol>
+        {% for book in category.book.all %}
+            <li>
+                <h5>Book Title: <strong>{{ book.name }}</strong></h5>
+                <h5>Book Description: <em>{{ book.description }}</em></h5>
+                <h5>Book Author: {{book.book_author}}</h5>
+            </li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+    {# Search Result for Books #}
+    {% if books %}
+    <h3> Found {{ books|length }} result{% if books|length > 1 %}s{% endif %}</h3>
+    <ol>
+    {% for book in books %}
+        <li>
+            <h5>Book Title: <strong>{{ book.name }}</strong></h5>
+            <h5>Book Description: <em>{{ book.description }}</em></h5>
+            <h5>Book Author: {{book.book_author}}</h5>
+            <h5>Book Category: {{ book.book_cat.name }}</h5>
+        </li>
+    {% endfor %}
+    </ol>
+    {% endif %}
+    <p>Click <a href="{% url 'home' %}">here</a> to search again</p>
+</div>
+
+{% endblock body_content %}

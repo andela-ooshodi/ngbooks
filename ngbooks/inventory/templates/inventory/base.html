@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <title>Search for your books</title>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <div class="container">
+                <h1><a style="color: #000; text-decoration: none" href="/">Hello, User!</a></h1>
+            </div>
+        </div>
+        <div class="container">
+            {% block body_content %}
+            <form action="{% url 'result' %}" method="get">
+                <div class="form-group">
+                    <label for="name">Search for Books</label>
+                    <input name="name" type="text" class="form-control" placeholder="Type in the book category or book title here" required>
+                    <div class="radio">
+                        <label class="radio-inline"><input type="radio" name="radio-opt" value="category" checked="checked">Categories</label>
+                        <label class="radio-inline"><input type="radio" name="radio-opt" value="book">Books</label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+            {# Direction to add books to the site #}
+            <a style="margin-top: 20px;" type="button" class="btn btn-primary" href="{% url 'add' %}">Add books to the platform</a>
+            {% endblock body_content %}
+        </div>
+    </body>
+</html>
